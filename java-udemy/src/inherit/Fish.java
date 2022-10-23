@@ -12,22 +12,27 @@ public class Fish extends Animal {
         this.fins = fins;
     }
 
-    private void rest() {
+    public void rest() {
 
     }
 
-    private void moveMuscles() {
-
+    public void moveMuscles() {
+        System.out.println("Fish.moveMuscles");
     }
 
-    private void moveBackFin() {
-
+    public void moveBackFin() {
+        System.out.println("Fish.moveBackFin");
     }
 
-    private void swim(int speed) {
+    public void swim(int speed) {
         moveMuscles();
         moveBackFin();
         super.move(speed);
+    }
+
+    @Override
+    public void move(int speed) {
+        System.out.println("fish speed is " + speed);
     }
 }
 
