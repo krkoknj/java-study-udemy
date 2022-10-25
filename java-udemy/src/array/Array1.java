@@ -1,5 +1,6 @@
 package array;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Array1 {
@@ -14,7 +15,6 @@ public class Array1 {
         }
 
         sort(arr);
-        print(arr);
     }
 
     /**
@@ -25,14 +25,44 @@ public class Array1 {
      * 10
      */
     public static void sort(int[] arr) {
+
+
+        int[] sortedArray = Arrays.copyOf(arr, arr.length);
+
         int tmp = 0;
         for (int i = 0; i < arr.length - 1; i++) {
-            if (arr[i] < arr[i + 1]) {
-                tmp = arr[i];
-                arr[i] = arr[i + 1];
-                arr[i + 1] = tmp;
+            if (sortedArray[i] < sortedArray[i + 1]) {
+                tmp = sortedArray[i];
+                sortedArray[i] = sortedArray[i + 1];
+                sortedArray[i + 1] = tmp;
             }
         }
+
+        System.out.println("Arrays.toString(arr) = " + Arrays.toString(arr));
+
+    }
+
+    public static void sort2(int[] arr) {
+        int[] sortedArray = new int[arr.length];
+        int tmp = 0;
+        boolean flag = true;
+        for (int i = 0; i < arr.length; i++) {
+            sortedArray[i] = arr[i];
+        }
+
+        while (flag) {
+            flag = false;
+            for (int i = 0; i < sortedArray.length - 1; i++) {
+                if (sortedArray[i] < sortedArray[i + 1]) {
+                    tmp = sortedArray[i];
+                    sortedArray[i] = sortedArray[i + 1];
+                    sortedArray[i + 1] = tmp;
+                    flag = true;
+                }
+            }
+        }
+
+        System.out.println("so = " + Arrays.toString(sortedArray));
 
     }
 
